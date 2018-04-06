@@ -35,7 +35,7 @@
                 },
                 {
                     "input_parameter": "parameter_1",
-                    "target_argument_position": "base_number"
+                    "target_property": "base_number"
                 }
             ],
             "output_mapping": [
