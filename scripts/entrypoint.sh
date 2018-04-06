@@ -2,9 +2,9 @@
 
 import time
 
-print("About to sleep for 1000");
-print("About to look at kb deployment user-env");
-time.sleep(1000);
+echo("About to sleep for 1000");
+echo("About to look at kb deployment user-env");
+sleep 10000;
 
 
 . /kb/deployment/user-env.sh
