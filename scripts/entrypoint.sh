@@ -1,7 +1,5 @@
 #!/bin/bash
 
-import time
-
 echo "About to sleep for 1000";
 echo "About to look at kb deployment user-env";
 sleep 10000;
