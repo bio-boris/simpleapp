@@ -29,9 +29,9 @@ suggestions:
 # Configure the display and description of parameters
 #
 parameters :
-    parameter_1 :
+    base_number :
         ui-name : |
-            First parameter
+            base_number
         short-hint : |
             The first parameter
         long-hint  : |

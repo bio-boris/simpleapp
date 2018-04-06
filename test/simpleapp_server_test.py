@@ -79,7 +79,7 @@ class simpleappTest(unittest.TestCase):
     def test_your_method(self):
 
 
-        ret = self.getImpl().simple_add(self.getContext(), {'parameter_1' : 100})
+        ret = self.getImpl().simple_add(self.getContext(), {'base_number' : 100})
         print("RESULT =")
         print(ret)
         #

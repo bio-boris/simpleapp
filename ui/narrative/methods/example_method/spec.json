@@ -11,7 +11,7 @@
     },
     "parameters": [ 
         {
-            "id": "parameter_1",
+            "id": "base_number",
             "optional": true,
             "advanced": false,
             "allow_multiple": false,
@@ -34,7 +34,7 @@
                     "target_property": "workspace_name"
                 },
                 {
-                    "input_parameter": "parameter_1",
+                    "input_parameter": "base_number",
                     "target_property": "base_number"
                 }
             ],
