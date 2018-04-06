@@ -15,9 +15,10 @@
             "optional": true,
             "advanced": false,
             "allow_multiple": false,
-            "default_values": [ "" ],
+            "default_values": [ "0" ],
             "field_type": "text",
             "text_options": {
+                "validate_as": "int",
                 "valid_ws_types": [ ]
             }
         }
