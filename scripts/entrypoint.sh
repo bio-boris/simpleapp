@@ -1,5 +1,12 @@
 #!/bin/bash
 
+import time
+
+print("About to sleep for 1000");
+print("About to look at kb deployment user-env");
+time.sleep(1000);
+
+
 . /kb/deployment/user-env.sh
 
 python ./scripts/prepare_deploy_cfg.py ./deploy.cfg ./work/config.properties
