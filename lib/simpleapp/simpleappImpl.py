@@ -44,7 +44,7 @@ class simpleapp:
         # ctx is the context object
         # return variables are: output
         #BEGIN simple_add
-        input_number = params['base_number']
+        input_number = int(params['base_number'])
         input_number += 100
         output =  {'new_number':input_number}
         #END simple_add
