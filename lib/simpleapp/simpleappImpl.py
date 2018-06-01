@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 #BEGIN_HEADER
+from DataFileUtil.DataFileUtilClient import DataFileUtil
+
 #END_HEADER
 
 
@@ -29,6 +31,8 @@ class simpleapp:
     # be found
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
+        self.callback_url = config["SDK_CALLBACK_URL"]
+        self.dfu = DataFileUtil(self.callback_url)
         #END_CONSTRUCTOR
         pass
 
@@ -47,6 +51,10 @@ class simpleapp:
         input_number = int(params['base_number'])
         input_number += 100
         output =  {'new_number':input_number}
+        path= self.dfu.download_web_file(
+            {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
+             'download_type': 'Direct Download'}).get(
+            'copy_file_path')
         #END simple_add
 
         # At some point might do deeper type checking...
