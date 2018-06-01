@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #BEGIN_HEADER
 from DataFileUtil.DataFileUtilClient import DataFileUtil
-
+import os
 #END_HEADER
 
 
@@ -31,7 +31,7 @@ class simpleapp:
     # be found
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
-        self.callback_url = config["SDK_CALLBACK_URL"]
+        self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         #END_CONSTRUCTOR
         pass
