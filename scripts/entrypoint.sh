@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "About to sleep for 10";
+echo "About to sleep for 30";
 echo "About to look at kb deployment user-env";
-sleep 10;
+sleep 30;
 
 
 . /kb/deployment/user-env.sh
