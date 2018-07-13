@@ -18,4 +18,7 @@ module simpleapp {
     funcdef simple_add(SimpleParams params)
         returns (SimpleResults output) authentication required;
 
+    funcdef simple_add_hpc_client_group(SimpleParams params)
+        returns (SimpleResults output) authentication required;
+
 };

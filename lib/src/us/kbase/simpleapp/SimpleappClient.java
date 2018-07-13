@@ -179,6 +179,23 @@ public class SimpleappClient {
         return res.get(0);
     }
 
+    /**
+     * <p>Original spec-file function name: simple_add_hpc_client_group</p>
+     * <pre>
+     * </pre>
+     * @param   params   instance of type {@link us.kbase.simpleapp.SimpleParams SimpleParams}
+     * @return   parameter "output" of type {@link us.kbase.simpleapp.SimpleResults SimpleResults}
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public SimpleResults simpleAddHpcClientGroup(SimpleParams params, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(params);
+        TypeReference<List<SimpleResults>> retType = new TypeReference<List<SimpleResults>>() {};
+        List<SimpleResults> res = caller.jsonrpcCall("simpleapp.simple_add_hpc_client_group", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
     public Map<String, Object> status(RpcContext... jsonRpcContext) throws IOException, JsonClientException {
         List<Object> args = new ArrayList<Object>();
         TypeReference<List<Map<String, Object>>> retType = new TypeReference<List<Map<String, Object>>>() {};
