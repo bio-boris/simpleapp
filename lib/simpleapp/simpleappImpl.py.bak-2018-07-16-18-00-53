@@ -22,7 +22,7 @@ class simpleapp:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/bio-boris/newapp.git"
-    GIT_COMMIT_HASH = "6cec912ff3fd721687612d39cd3e3078e240ddb0"
+    GIT_COMMIT_HASH = "9af2084390d551f0ad3da64a595e23d18436c90d"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -51,7 +51,7 @@ class simpleapp:
         input_number = int(params['base_number'])
         input_number += 100
         output =  {'new_number':input_number}
-        path = self.dfu.download_web_file(
+        path= self.dfu.download_web_file(
             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
@@ -74,7 +74,7 @@ class simpleapp:
         """
         # ctx is the context object
         # return variables are: output
-        #BEGIN simple_add_hpc_client_group
+        #BEGIN simple_add
         input_number = int(params['base_number'])
         input_number += 100
         output =  {'new_number':input_number}
@@ -82,37 +82,15 @@ class simpleapp:
             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
-        #END simple_add_hpc_client_group
+        #END simple_add
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
-            raise ValueError('Method simple_add_hpc_client_group return value ' +
+            raise ValueError('Method simple_add return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]
 
-    def simple_add_hpc_client_group_extra_simple(self, ctx, params):
-        """
-        :param params: instance of type "SimpleParams" (Insert your typespec
-           information here.) -> structure: parameter "base_number" of Long,
-           parameter "workspace_name" of String
-        :returns: instance of type "SimpleResults" -> structure: parameter
-           "new_number" of Long
-        """
-        # ctx is the context object
-        # return variables are: output
-        #BEGIN simple_add_hpc_client_group_extra_simple
-        input_number = int(params['base_number'])
-        input_number += 100
-        output =  {'new_number':input_number}
-        #END simple_add_hpc_client_group_extra_simple
-
-        # At some point might do deeper type checking...
-        if not isinstance(output, dict):
-            raise ValueError('Method simple_add_hpc_client_group_extra_simple return value ' +
-                             'output is not type dict as required.')
-        # return the results
-        return [output]
     def status(self, ctx):
         #BEGIN_STATUS
         returnVal = {'state': "OK",

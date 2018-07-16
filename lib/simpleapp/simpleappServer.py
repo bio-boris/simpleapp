@@ -341,6 +341,10 @@ class Application(object):
                              name='simpleapp.simple_add_hpc_client_group',
                              types=[dict])
         self.method_authentication['simpleapp.simple_add_hpc_client_group'] = 'required'  # noqa
+        self.rpc_service.add(impl_simpleapp.simple_add_hpc_client_group_extra_simple,
+                             name='simpleapp.simple_add_hpc_client_group_extra_simple',
+                             types=[dict])
+        self.method_authentication['simpleapp.simple_add_hpc_client_group_extra_simple'] = 'required'  # noqa
         self.rpc_service.add(impl_simpleapp.status,
                              name='simpleapp.status',
                              types=[dict])
