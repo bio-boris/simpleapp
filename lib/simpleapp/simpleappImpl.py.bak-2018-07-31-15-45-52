@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-#BEGIN_HEADER
+# BEGIN_HEADER
 from DataFileUtil.DataFileUtilClient import DataFileUtil
 from sleep_job.sleep_jobClient import sleep_job
 import os
 
 
-#END_HEADER
+# END_HEADER
 
 
 class simpleapp:
@@ -25,20 +25,48 @@ class simpleapp:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/bio-boris/newapp.git"
-    GIT_COMMIT_HASH = "4d01256429f6ac47f1b74ef0a02c907d4e10cb3f"
+    GIT_COMMIT_HASH = "6cec912ff3fd721687612d39cd3e3078e240ddb0"
 
-    #BEGIN_CLASS_HEADER
-    #END_CLASS_HEADER
+    # BEGIN_CLASS_HEADER
+    # END_CLASS_HEADER
 
     # config contains contents of config file in a hash or None if it couldn't
     # be found
     def __init__(self, config):
-        #BEGIN_CONSTRUCTOR
+        # BEGIN_CONSTRUCTOR
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
-        self.sj = sleep_job(self.callback_url)
-        #END_CONSTRUCTOR
+        # END_CONSTRUCTOR
         pass
+
+
+    def simple_add_with_sleep(self, ctx, params):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        # ctx is the context object
+        # return variables are: output
+        # BEGIN simple_add
+        input_number = int(params['base_number'])
+        input_number += 100
+        output = {'new_number': input_number}
+        path = self.dfu.download_web_file(
+            {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
+             'download_type': 'Direct Download'}).get(
+            'copy_file_path')
+        sleep_job.simple_sleep({'input_sleep' : 120})
+        # END simple_add
+
+        # At some point might do deeper type checking...
+        if not isinstance(output, dict):
+            raise ValueError('Method simple_add return value ' +
+                             'output is not type dict as required.')
+        # return the results
+        return [output]
 
 
     def simple_add(self, ctx, params):
@@ -51,7 +79,7 @@ class simpleapp:
         """
         # ctx is the context object
         # return variables are: output
-        #BEGIN simple_add
+        # BEGIN simple_add
         input_number = int(params['base_number'])
         input_number += 100
         output = {'new_number': input_number}
@@ -59,43 +87,11 @@ class simpleapp:
             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
-        #END simple_add
+        # END simple_add
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
             raise ValueError('Method simple_add return value ' +
-                             'output is not type dict as required.')
-        # return the results
-        return [output]
-
-    def simple_add_with_sleep(self, ctx, params):
-        """
-        :param params: instance of type "SimpleParams" (Insert your typespec
-           information here.) -> structure: parameter "base_number" of Long,
-           parameter "workspace_name" of String
-        :returns: instance of type "SimpleResults" -> structure: parameter
-           "new_number" of Long
-        """
-        # ctx is the context object
-        # return variables are: output
-        #BEGIN simple_add_with_sleep
-        input_number = int(params['base_number'])
-        input_number += 100
-        output = {'new_number': input_number}
-        path = self.dfu.download_web_file(
-            {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
-             'download_type': 'Direct Download'}).get(
-            'copy_file_path')
-
-        params = {'input_sleep' : 120}
-        self.sj.simple_sleep(params)
-
-
-        #END simple_add_with_sleep
-
-        # At some point might do deeper type checking...
-        if not isinstance(output, dict):
-            raise ValueError('Method simple_add_with_sleep return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]
@@ -110,7 +106,7 @@ class simpleapp:
         """
         # ctx is the context object
         # return variables are: output
-        #BEGIN simple_add_hpc_client_group
+        # BEGIN simple_add_hpc_client_group
         input_number = int(params['base_number'])
         input_number += 100
         output = {'new_number': input_number}
@@ -118,7 +114,7 @@ class simpleapp:
             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
-        #END simple_add_hpc_client_group
+        # END simple_add_hpc_client_group
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
@@ -137,11 +133,11 @@ class simpleapp:
         """
         # ctx is the context object
         # return variables are: output
-        #BEGIN simple_add_hpc_client_group_extra_simple
+        # BEGIN simple_add_hpc_client_group_extra_simple
         input_number = int(params['base_number'])
         input_number += 100
         output = {'new_number': input_number}
-        #END simple_add_hpc_client_group_extra_simple
+        # END simple_add_hpc_client_group_extra_simple
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
@@ -149,12 +145,13 @@ class simpleapp:
                              'output is not type dict as required.')
         # return the results
         return [output]
+
     def status(self, ctx):
-        #BEGIN_STATUS
+        # BEGIN_STATUS
         returnVal = {'state': "OK",
                      'message': "",
                      'version': self.VERSION,
                      'git_url': self.GIT_URL,
                      'git_commit_hash': self.GIT_COMMIT_HASH}
-        #END_STATUS
+        # END_STATUS
         return [returnVal]

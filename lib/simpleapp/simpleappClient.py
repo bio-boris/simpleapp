@@ -45,6 +45,18 @@ class simpleapp(object):
             'simpleapp.simple_add',
             [params], self._service_ver, context)
 
+    def simple_add_with_sleep(self, params, context=None):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        return self._client.call_method(
+            'simpleapp.simple_add_with_sleep',
+            [params], self._service_ver, context)
+
     def simple_add_hpc_client_group(self, params, context=None):
         """
         :param params: instance of type "SimpleParams" (Insert your typespec

@@ -79,7 +79,8 @@ class simpleappTest(unittest.TestCase):
     def test_your_method(self):
 
 
-        ret = self.getImpl().simple_add(self.getContext(), {'base_number' : 100})
+        #ret = self.getImpl().simple_add(self.getContext(), {'base_number' : 100})
+        ret = self.getImpl().simple_add_with_sleep(self.getContext(), {'base_number' : 100})
         print("RESULT =")
         print(ret)
         #
