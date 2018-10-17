@@ -1,0 +1,54 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "bsadkhin"
+    ],
+    "contact": "",
+    "categories": ["active"],
+    "widgets": {
+        "input": null,
+        "output": null
+    },
+    "parameters": [ 
+        {
+            "id": "base_number",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "0" ],
+            "field_type": "text",
+            "text_options": {
+                "validate_as": "int",
+                "valid_ws_types": [ ]
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "simpleapp",
+            "method": "simple_add_with_sleep",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },
+                {
+                    "input_parameter": "base_number",
+                    "target_property": "base_number"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0, "new_number"],
+                    "target_property": "new_number"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspaceName"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}
