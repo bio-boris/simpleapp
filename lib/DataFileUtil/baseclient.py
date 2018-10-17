@@ -27,6 +27,11 @@ _CT = 'content-type'
 _AJ = 'application/json'
 _URL_SCHEME = frozenset(['http', 'https'])
 
+def log(message, prefix_newline=False):
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time()))
+    print(('\n' if prefix_newline else '') + time_str + ': ' + message)
+
+
 
 def _get_token(user_id, password, auth_svc):
     # This is bandaid helper function until we get a full
@@ -170,7 +175,7 @@ class BaseClient(object):
             if type(context) is not dict:
                 raise ValueError('context is not type dict as required.')
             arg_hash['context'] = context
-
+        log(str(arg_hash))
         body = _json.dumps(arg_hash, cls=_JSONObjectEncoder)
         ret = _requests.post(url, data=body, headers=self._headers,
                              timeout=self.timeout,
