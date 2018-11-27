@@ -180,6 +180,23 @@ public class SimpleappClient {
     }
 
     /**
+     * <p>Original spec-file function name: simple_add_multiprocessing</p>
+     * <pre>
+     * </pre>
+     * @param   params   instance of type {@link us.kbase.simpleapp.SimpleParams SimpleParams}
+     * @return   parameter "output" of type {@link us.kbase.simpleapp.SimpleResults SimpleResults}
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public SimpleResults simpleAddMultiprocessing(SimpleParams params, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(params);
+        TypeReference<List<SimpleResults>> retType = new TypeReference<List<SimpleResults>>() {};
+        List<SimpleResults> res = caller.jsonrpcCall("simpleapp.simple_add_multiprocessing", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
+    /**
      * <p>Original spec-file function name: simple_add_with_sleep</p>
      * <pre>
      * </pre>

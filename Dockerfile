@@ -10,6 +10,7 @@ MAINTAINER KBase Developer
 
 
 # -----------------------------------------
+RUN pip install pathos
 
 COPY ./ /kb/module
 RUN mkdir -p /kb/module/work

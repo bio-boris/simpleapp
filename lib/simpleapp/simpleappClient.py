@@ -23,7 +23,7 @@ class simpleapp(object):
             self, url=None, timeout=30 * 60, user_id=None,
             password=None, token=None, ignore_authrc=False,
             trust_all_ssl_certificates=False,
-            auth_svc='https://kbase.us/services/authorization/Sessions/Login'):
+            auth_svc='https://ci.kbase.us/services/auth/api/legacy/KBase/Sessions/Login'):
         if url is None:
             raise ValueError('A url is required')
         self._service_ver = None
@@ -43,6 +43,18 @@ class simpleapp(object):
         """
         return self._client.call_method(
             'simpleapp.simple_add',
+            [params], self._service_ver, context)
+
+    def simple_add_multiprocessing(self, params, context=None):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        return self._client.call_method(
+            'simpleapp.simple_add_multiprocessing',
             [params], self._service_ver, context)
 
     def simple_add_with_sleep(self, params, context=None):
