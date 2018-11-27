@@ -87,8 +87,8 @@ class simpleapp:
         import random
         random_nums = random.sample(range(1, 1001), 1000)
 
-        cpus = 4
-        p = Pool(ncpus=5)
+        p = Pool(ncpus=int(params['pool_size']))
+        print("About to start with pool size of:" + str(params['pool_size']))
         f = self.sac.simple_add
         params = []
 
@@ -129,7 +129,8 @@ class simpleapp:
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
 
-        params = {'input_sleep': 120}
+        print("About to sleep for" + str(params['base_number']))
+        params = {'input_sleep': int(params['base_number'])}
         self.sj.simple_sleep(params)
 
         #END simple_add_with_sleep

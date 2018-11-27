@@ -80,8 +80,8 @@ class simpleappTest(unittest.TestCase):
 
 
         #ret = self.getImpl().simple_add(self.getContext(), {'base_number' : 100})
-        #ret = self.getImpl().simple_add_with_sleep(self.getContext(), {'base_number' : 100})
-        ret = self.getImpl().simple_add_multiprocessing(self.getContext(), {'base_number': 100})
+        #ret = self.getImpl().simple_add_with_sleep(self.getContext(), {'base_number' : 5})
+        ret = self.getImpl().simple_add_multiprocessing(self.getContext(), {'base_number': 100, 'pool_size' : 4})
 
         print("RESULT =")
         print(ret)
