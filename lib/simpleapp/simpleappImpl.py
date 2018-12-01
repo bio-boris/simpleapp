@@ -122,16 +122,43 @@ class simpleapp:
         # return variables are: output
         #BEGIN simple_add_with_sleep
         input_number = int(params['base_number'])
+
+        output = {'new_number': input_number}
+# #         path = self.dfu.download_web_file(
+# #             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
+# #              'download_type': 'Direct Download'}).get(
+# #             'copy_file_path')
+
+#         print("About to sleep for" + str(params['base_number']))
+#         params = {'input_sleep': int(params['base_number'])}
+#         self.sj.simple_sleep(params)
+        import time
+        time.sleep(120 + input_number)
+        return [{}];
+        
+    def simple_add_with_sleep_client(self, ctx, params):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        # ctx is the context object
+        # return variables are: output
+        #BEGIN simple_add_with_sleep
+        input_number = int(params['base_number'])
         input_number += 100
         output = {'new_number': input_number}
-        path = self.dfu.download_web_file(
-            {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
-             'download_type': 'Direct Download'}).get(
-            'copy_file_path')
+#         path = self.dfu.download_web_file(
+#             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
+#              'download_type': 'Direct Download'}).get(
+#             'copy_file_path')
 
         print("About to sleep for" + str(params['base_number']))
         params = {'input_sleep': int(params['base_number'])}
         self.sj.simple_sleep(params)
+        
 
         #END simple_add_with_sleep
 
