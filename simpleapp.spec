@@ -23,6 +23,9 @@ module simpleapp {
 
     funcdef simple_add_with_sleep(SimpleParams params)
         returns (SimpleResults output) authentication required;
+    
+    funcdef simple_add_with_sleep_client(SimpleParams params)
+        returns (SimpleResults output) authentication required;
 
     funcdef simple_add_hpc_client_group(SimpleParams params)
         returns (SimpleResults output) authentication required;
