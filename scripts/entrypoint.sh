@@ -27,7 +27,7 @@ elif [ "${1}" = "init" ] ; then
 #   ln -s /data/kmer/Release70 /data/kmer/ACTIVE/Release70
 #   ln -s /data/kmer/Release70 /data/kmer/DEFAULT
 #   if [ -d kmer ] ; then
-#   	touch __READY__
+  	touch __READY__
 #   else
 #     echo "Init failed"
   fi
