@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# echo "About to sleep for 5";
-# echo "About to look at kb deployment user-env";
-
-
 . /kb/deployment/user-env.sh
 
 python ./scripts/prepare_deploy_cfg.py ./deploy.cfg ./work/config.properties
@@ -21,17 +17,6 @@ elif [ "${1}" = "async" ] ; then
   sh ./scripts/run_async.sh
 elif [ "${1}" = "init" ] ; then
   echo "Initialize module"
-  echo "Initialize module"
-  cd /data && touch __READY__
-  
-#   curl -s http://bioseed.mcs.anl.gov/~chenry/kmer.tgz|tar xzf -
-#   ln -s /data/kmer/Release70 /data/kmer/ACTIVE/Release70
-#   ln -s /data/kmer/Release70 /data/kmer/DEFAULT
-#   if [ -d kmer ] ; then
-  	
-#   else
-#     echo "Init failed"
-  fi
 elif [ "${1}" = "bash" ] ; then
   bash
 elif [ "${1}" = "report" ] ; then
