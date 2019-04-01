@@ -26,10 +26,10 @@ elif [ "${1}" = "init" ] ; then
 #   curl -s http://bioseed.mcs.anl.gov/~chenry/kmer.tgz|tar xzf -
 #   ln -s /data/kmer/Release70 /data/kmer/ACTIVE/Release70
 #   ln -s /data/kmer/Release70 /data/kmer/DEFAULT
-  if [ -d kmer ] ; then
-  	touch __READY__
-  else
-    echo "Init failed"
+#   if [ -d kmer ] ; then
+#   	touch __READY__
+#   else
+#     echo "Init failed"
   fi
 elif [ "${1}" = "bash" ] ; then
   bash
