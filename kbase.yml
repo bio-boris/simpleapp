@@ -13,5 +13,5 @@ module-version:
 owners:
     [bsadkhin,wsadmin]
 
-data-version:
-    0.0.1
+# data-version:
+#     0.0.1
