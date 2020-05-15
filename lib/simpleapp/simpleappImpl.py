@@ -26,8 +26,8 @@ class simpleapp:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = "https://github.com/bio-boris/newapp.git"
-    GIT_COMMIT_HASH = "d6da47ed34ad191a51ec43ea4696ed713be241da"
+    GIT_URL = "https://bio-boris@github.com/bio-boris/newapp.git"
+    GIT_COMMIT_HASH = "6ea6b3b856d755d466af415d5f7473a82daf1f26"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -143,6 +143,26 @@ class simpleapp:
         # return the results
         return [output]
 
+    def simple_add_with_sleep_client(self, ctx, params):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        # ctx is the context object
+        # return variables are: output
+        #BEGIN simple_add_with_sleep_client
+        #END simple_add_with_sleep_client
+
+        # At some point might do deeper type checking...
+        if not isinstance(output, dict):
+            raise ValueError('Method simple_add_with_sleep_client return value ' +
+                             'output is not type dict as required.')
+        # return the results
+        return [output]
+
     def simple_add_hpc_client_group(self, ctx, params):
         """
         :param params: instance of type "SimpleParams" (Insert your typespec
@@ -189,6 +209,45 @@ class simpleapp:
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
             raise ValueError('Method simple_add_hpc_client_group_extra_simple return value ' +
+                             'output is not type dict as required.')
+        # return the results
+        return [output]
+
+    def example_method_logs(self, ctx, params):
+        """
+        :param params: instance of type "SimpleParams" (Insert your typespec
+           information here.) -> structure: parameter "base_number" of Long,
+           parameter "workspace_name" of String
+        :returns: instance of type "SimpleResults" -> structure: parameter
+           "new_number" of Long
+        """
+        # ctx is the context object
+        # return variables are: output
+        #BEGIN example_method_logs
+        import random
+        def sentence_generator():
+            nouns = ("puppy", "car", "rabbit", "girl", "monkey")
+            verbs = ("runs", "hits", "jumps", "drives", "barfs")
+            adv = ("crazily.", "dutifully.", "foolishly.", "merrily.", "occasionally.")
+            adj = ("adorable", "clueless", "dirty", "odd", "stupid")
+            num = random.randrange(0, 5)
+            sentence = nouns[num] + ' ' + verbs[num] + ' ' + adv[num] + ' ' + adj[num]
+            return sentence
+
+        chars = 32000000
+        while (chars > 0):
+            generated = sentence_generator() * 5
+            chars -= len(generated)
+            print(generated)
+
+        print("This is the end of the program bro")
+        print("This is the end of the program bro")
+
+        #END example_method_logs
+
+        # At some point might do deeper type checking...
+        if not isinstance(output, dict):
+            raise ValueError('Method example_method_logs return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]
