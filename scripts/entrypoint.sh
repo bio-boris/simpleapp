@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# echo "About to sleep for 5";
-# echo "About to look at kb deployment user-env";
-
-
 . /kb/deployment/user-env.sh
 
 python ./scripts/prepare_deploy_cfg.py ./deploy.cfg ./work/config.properties
