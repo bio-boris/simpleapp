@@ -242,7 +242,7 @@ class simpleapp:
 
         print("This is the end of the program bro")
         print("This is the end of the program bro")
-        output = {'new_number': input_number}
+        output = {'new_number': chars}
         #END example_method_logs
 
         # At some point might do deeper type checking...
