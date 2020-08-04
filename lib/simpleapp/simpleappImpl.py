@@ -65,7 +65,7 @@ class simpleapp:
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
         print("About to do some refdata")
-        return_value = self.aj.run_alans_job({'workspace_name': None})
+        return_value = self.aj.run_alans_job({'workspace_name': params['workspace_name']})
         print("got")
         print(return_value)
 
