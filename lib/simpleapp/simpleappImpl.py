@@ -40,7 +40,7 @@ class simpleapp:
         self.dfu = DataFileUtil(self.callback_url)
         self.sj = sleep_job(self.callback_url)
         self.sac = simpleapp_client(self.callback_url)
-        self.aj = alans_job(self.callback_url)
+        self.aj = alans_job(self.callback_url,service_ver='dev')
 
         #END_CONSTRUCTOR
         pass
