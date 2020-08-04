@@ -6,7 +6,7 @@ from .simpleappClient import simpleapp as simpleapp_client
 
 import os
 from pathos.multiprocessing import ProcessingPool as Pool
-
+from installed_clients.alans_jobClient import alans_job
 #END_HEADER
 
 
@@ -40,6 +40,7 @@ class simpleapp:
         self.dfu = DataFileUtil(self.callback_url)
         self.sj = sleep_job(self.callback_url)
         self.sac = simpleapp_client(self.callback_url)
+        self.aj = alans_job(self.callback_url)
 
         #END_CONSTRUCTOR
         pass
@@ -63,6 +64,11 @@ class simpleapp:
             {'file_url': "http://kbase.us/wp-content/uploads/2016/09/Kbase_Logo_newWeb.png",
              'download_type': 'Direct Download'}).get(
             'copy_file_path')
+        print("About to do some refdata")
+        return_value = self.aj.run_alans_job({})
+        print("got")
+        print(return_value)
+
         #END simple_add
 
         # At some point might do deeper type checking...
